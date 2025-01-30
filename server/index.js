@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 const CONNECTION_URL =
-  "mongodb+srv://lestercuasay:Metalmonk1@socialapp.1y5hs.mongodb.net/?retryWrites=true&w=majority&appName=SocialApp";
+  `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@socialapp.1y5hs.mongodb.net/?retryWrites=true&w=majority&appName=SocialApp`;
 const PORT = process.env.PORT || 5001;
 
 mongoose
