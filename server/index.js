@@ -18,8 +18,7 @@ app.use(cors());
 
 const MONGO_URL = process.env.MONGO_URL;
 
-const CONNECTION_URL =
-  `${MONGO_URL}`;
+const CONNECTION_URL = `${MONGO_URL}`;
 const PORT = process.env.PORT || 5001;
 
 mongoose
