@@ -1,10 +1,21 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 
-createRoot(document.getElementById('root')).render(
+import { Provider } from "react-redux";
+import { configureStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+
+import reducers from "./reducers";
+
+import App from "./App.jsx";
+
+const store = configureStore(reducers, compose(applyMiddleware(thunk)));
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <Provider store={store}> 
+      <App />
+    </Provider>
+  </StrictMode>
+);
