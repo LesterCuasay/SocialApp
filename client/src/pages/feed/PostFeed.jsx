@@ -1,12 +1,15 @@
 import React from "react";
+import Posts from "../posts/Posts";
 import Post from "../posts/PostCreateForm";
 
-const Home = () => {
+const PostFeed = () => {
   return (
-    <div className="ml-12 mt-12">
+    <div>
       <Post />
+
+      <Posts />
     </div>
   );
 };
 
-export default Home;
+export default PostFeed;

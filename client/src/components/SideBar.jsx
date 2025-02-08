@@ -13,8 +13,8 @@ const SideBar = ({ isOpen }) => {
     >
       <ul>
         <li>
-          <Link to="/" aria-label="Home">
-            <SideBarIcon icon={<FaHome size="28" />} text="Home" />
+          <Link to="/feed" aria-label="Feed">
+            <SideBarIcon icon={<FaHome size="28" />} text="Feed" />
           </Link>
         </li>
         <li>
