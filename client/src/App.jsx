@@ -18,10 +18,11 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen">
       <Layout />
-      <div className="flex-1 ml-32 mt-16 bg-gray-800">
+      <div className="flex-1 bg-gray-800">
         <Routes>
+          <Route path="/" element={<PostFeed />} />
           <Route path="/feed" element={<PostFeed />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />

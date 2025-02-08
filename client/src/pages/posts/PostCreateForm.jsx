@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createPost } from "../../actions/Posts";
+import FileBase from "react-file-base64";
 
 const Post = () => {
   const [postData, setPostData] = useState({
@@ -22,7 +23,7 @@ const Post = () => {
   const clear = () => {};
 
   return (
-    <div className="bg-white flex justify-center">
+    <div className="bg-white flex justify-center mt-16">
       <form
         className="flex flex-col"
         action=""
@@ -68,7 +69,15 @@ const Post = () => {
           value={postData.tags}
           onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />
-
+        <div>
+          <FileBase
+            type="file"
+            multiple={false}
+            onDone={({ base64 }) =>
+              setPostData({ ...postData, selectedFile: base64 })
+            }
+          />
+        </div>
         <button
           className="bg-blue-500 rounded-2xl mb-2 text-white cursor-pointer" 
           type="submit"

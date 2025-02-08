@@ -6,7 +6,7 @@ const PostFeed = () => {
   return (
     <div>
       <Post />
-
+      
       <Posts />
     </div>
   );

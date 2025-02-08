@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 const SideBar = ({ isOpen }) => {
   return (
     <div
-      className={`bg-gray-900 text-white w-full md:w-32 p-4 mt-16 shadow-md h-screen fixed left-0 transition-all ease-in-out duration-300 ${
-        isOpen ? "translate-x-0" : "translate-x-full"
-      }`}
+      className={`bg-gray-900 text-white w-full md:w-32 p-4 mt-16 shadow-md h-screen fixed left-0 transition-all ease-in-out duration-300
+        ${isOpen ? "translate-x-0" : "translate-x-full"}
+        `}
     >
       <ul>
         <li>
