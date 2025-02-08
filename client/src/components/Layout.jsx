@@ -21,7 +21,7 @@ const Layout = () => {
   return (
     <div>
       <NavBar toggleSideBar={() => setIsSideBarOpen(!isSideBarOpen)} />
-      <SideBar isOpen={isSideBarOpen} />
+      <SideBar toggleSideBar={() => setIsSideBarOpen(!isSideBarOpen)} isOpen={isSideBarOpen} />
     </div>
   );
 };

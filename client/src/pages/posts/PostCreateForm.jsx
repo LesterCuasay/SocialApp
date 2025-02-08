@@ -23,7 +23,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
   const clear = () => {};
 
   return (
-    <div className="bg-white flex justify-center mt-16">
+    <div className="bg-white flex justify-center">
       <form
         className="flex flex-col"
         action=""
