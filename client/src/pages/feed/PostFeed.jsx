@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Posts from "../posts/Posts";
-import Post from "../posts/PostCreateForm";
+import PostCreateForm from "../posts/PostCreateForm";
 
 const PostFeed = () => {
+  const [currentId, setCurrentId] = useState(null);
+
   return (
     <div>
-      <Post />
+      <PostCreateForm currentId={currentId} setCurrentId={setCurrentId} />
       
-      <Posts />
+      <Posts setCurrentId={setCurrentId} />
     </div>
   );
 };

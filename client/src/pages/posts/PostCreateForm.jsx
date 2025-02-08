@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { createPost } from "../../actions/Posts";
 import FileBase from "react-file-base64";
 
-const Post = () => {
+const PostCreateForm = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
@@ -95,4 +95,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default PostCreateForm;
