@@ -9,7 +9,9 @@ const Posts = ({ setCurrentId }) => {
   return (
     <div className="w-full max-w-full sm:max-w-lg mx-auto mt-4 space-y-4 z-1000">
       {posts.length === 0 ? (
-        <p>No Posts!</p>
+        <div className="rounded bg-white flex justify-center">
+          <p className="font-bold p-4">No Posts!</p>
+        </div>
       ) : (
         posts.map((post, index) => (
           <div

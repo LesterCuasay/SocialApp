@@ -18,3 +18,12 @@
            transition-all duration-100 scale-0 origin-left;
   }
 }
+
+.input-file input[type="file"]::-webkit-file-upload-button {
+  background-color: white;
+  border-width: 1px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  color: black;
+}

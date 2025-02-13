@@ -3,7 +3,7 @@ import { PiDotsThreeBold } from "react-icons/pi";
 import { TiThumbsUp } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import { deletePost } from "../../actions/posts";
+import { deletePost } from "../../actions/Posts";
 
 const Post = ({ post, setCurrentId }) => {
 
