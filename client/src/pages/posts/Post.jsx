@@ -2,8 +2,13 @@ import React from "react";
 import { PiDotsThreeBold } from "react-icons/pi";
 import { TiThumbsUp } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { deletePost } from "../../actions/posts";
 
 const Post = ({ post, setCurrentId }) => {
+
+  const dispatch = useDispatch();
+
   return (
     <div>
       <div className="flex border-b-2 p-2 pb-0">
@@ -12,7 +17,9 @@ const Post = ({ post, setCurrentId }) => {
           <PiDotsThreeBold
             size={24}
             className="cursor-pointer"
-            onClick={() => {setCurrentId(post._id)}}
+            onClick={() => {
+              setCurrentId(post._id);
+            }}
           />
         </button>
       </div>
@@ -35,7 +42,7 @@ const Post = ({ post, setCurrentId }) => {
           <MdDelete
             size={24}
             className="cursor-pointer text-red-500"
-            onClick={() => {}}
+            onClick={() => dispatch(deletePost(post._id))}
           />
         </div>
       </div>
