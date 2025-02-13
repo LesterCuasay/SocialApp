@@ -18,9 +18,9 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="flex h-screen">
+    <div className="flex">
       <Layout />
-      <div className="flex-1 px-8 md:pl-38 md:pr-8 mt-16 pt-10 bg-gray-800">
+      <div className="flex-1 px-8 md:pl-38 md:pr-8 mt-16 pt-10 bg-gray-800 min-h-screen">
         <Routes>
           <Route path="/" element={<PostFeed />} />
           <Route path="/feed" element={<PostFeed />} />
