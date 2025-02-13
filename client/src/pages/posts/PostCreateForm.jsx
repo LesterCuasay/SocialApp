@@ -13,12 +13,15 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
     selectedFile: "",
   });
 
-  const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+  const post = useSelector((state) =>
+    currentId ? state.posts.find((p) => p._id === currentId) : null
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("PostData after clear:", postData);
     if (post) setPostData(post);
-  }, [post])
+  }, [post]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,79 +31,94 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
     } else {
       dispatch(createPost(postData));
     }
+    clear();
   };
 
-  const clear = () => {};
+  const clear = () => {
+    setCurrentId(null);
+    setPostData({
+      creator: "",
+      title: "",
+      message: "",
+      tags: "",
+      selectedFile: "",
+    });
+  };
 
   return (
-    <div className="bg-white flex justify-center">
-      <form
-        className="flex flex-col"
-        action=""
-        autoComplete="off"
-        noValidate
-        onSubmit={handleSubmit}
-      >
-        <h2>Write A Post!</h2>
-        <input
-          className="border-2 mb-2"
-          placeholder="Your Name"
-          name="creator"
-          label="Creator"
-          value={postData.creator}
-          onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
-          }
-        />
-        <input
-          className="border-2 mb-2"
-          name="title"
-          label="Title"
-          placeholder="Post Title"
-          value={postData.title}
-          onChange={(e) => setPostData({ ...postData, title: e.target.value })}
-        />
-        <textarea
-          className="border-2 mb-2 resize-none"
-          name="message"
-          label="Message"
-          placeholder="Write your message here"
-          rows={4}
-          value={postData.message}
-          onChange={(e) =>
-            setPostData({ ...postData, message: e.target.value })
-          }
-        />
-        <input
-          className="border-2 mb-2"
-          name="tags"
-          label="Tags"
-          placeholder="Add tags (e.g., #React, #WebDev)"
-          value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
-        />
-        <div>
-          <FileBase
-            type="file"
-            multiple={false}
-            onDone={({ base64 }) =>
-              setPostData({ ...postData, selectedFile: base64 })
+    <div className="flex justify-center">
+      <div className="bg-white p-4 rounded shadow-md mb-4">
+        <form
+          className="flex flex-col"
+          action=""
+          autoComplete="off"
+          noValidate
+          onSubmit={handleSubmit}
+        >
+          <h2>{currentId ? "Update" : "Create"} a Post!</h2>
+          <input
+            className="border-2 mb-2"
+            placeholder="Your Name"
+            name="creator"
+            label="Creator"
+            value={postData.creator}
+            onChange={(e) =>
+              setPostData({ ...postData, creator: e.target.value })
             }
           />
-        </div>
-        <button
-          className="bg-blue-500 rounded-2xl mb-2 text-white cursor-pointer"
-          type="submit"
-        >
-          Submit
-        </button>
-        <button
-          className="bg-red-500 rounded-2xl mb-2 text-white cursor-pointer"
-          onClick={clear}
-        >
-          Clear
-        </button>
-      </form>
+          <input
+            className="border-2 mb-2"
+            name="title"
+            label="Title"
+            placeholder="Post Title"
+            value={postData.title}
+            onChange={(e) =>
+              setPostData({ ...postData, title: e.target.value })
+            }
+          />
+          <textarea
+            className="border-2 mb-2 resize-none"
+            name="message"
+            label="Message"
+            placeholder="Write your message here"
+            rows={4}
+            value={postData.message}
+            onChange={(e) =>
+              setPostData({ ...postData, message: e.target.value })
+            }
+          />
+          <input
+            className="border-2 mb-2"
+            name="tags"
+            label="Tags"
+            placeholder="Add tags (e.g., #React, #WebDev)"
+            value={postData.tags}
+            onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+          />
+          <div>
+            <FileBase
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) =>
+                setPostData({ ...postData, selectedFile: base64 })
+              }
+            />
+          </div>
+          <button
+            className="bg-blue-500 rounded-2xl mb-2 text-white cursor-pointer"
+            type="submit"
+          >
+            Submit
+          </button>
+          <button
+            className="bg-red-500 rounded-2xl mb-2 text-white cursor-pointer"
+            onClick={clear}
+            type="button"
+          >
+            Clear
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
