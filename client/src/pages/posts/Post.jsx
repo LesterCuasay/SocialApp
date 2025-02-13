@@ -6,16 +6,22 @@ import { MdDelete } from "react-icons/md";
 const Post = ({ post, setCurrentId }) => {
   return (
     <div>
-      <div className="flex border-b-2">
+      <div className="flex border-b-2 p-2 pb-0">
         <h2 className="text-lg font-bold flex-grow mb-4">{post.title}</h2>
         <button className="mb-4 mr-4">
-          <PiDotsThreeBold size={24} className="cursor-pointer" />
+          <PiDotsThreeBold
+            size={24}
+            className="cursor-pointer"
+            onClick={() => {setCurrentId(post._id)}}
+          />
         </button>
       </div>
-      <p className="mx-4">{post.message}</p>
-      <p className="mt-4"> - {post.creator || "Anonymous"}</p>
-      <p>{post.tags}</p>
-      <div className="mt-4 flex items-center justify-between mx-2">
+      <div className="p-2">
+        <p className="">{post.message}</p>
+        <p className=""> - {post.creator || "Anonymous"}</p>
+        <p>{post.tags}</p>
+      </div>
+      <div className="mt-4 flex items-center justify-between p-2">
         <div className="flex items-center space-x-2">
           <TiThumbsUp
             size={24}

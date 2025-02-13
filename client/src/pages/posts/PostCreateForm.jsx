@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { createPost } from "../../actions/Posts";
+import { createPost, updatePost } from "../../actions/Posts";
 import FileBase from "react-file-base64";
+import { useSelector } from "react-redux";
 
 const PostCreateForm = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
@@ -12,12 +13,21 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
     selectedFile: "",
   });
 
+  const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (post) setPostData(post);
+  }, [post])
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(createPost(postData));
+    if (currentId) {
+      dispatch(updatePost(currentId, postData));
+    } else {
+      dispatch(createPost(postData));
+    }
   };
 
   const clear = () => {};
@@ -79,7 +89,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
           />
         </div>
         <button
-          className="bg-blue-500 rounded-2xl mb-2 text-white cursor-pointer" 
+          className="bg-blue-500 rounded-2xl mb-2 text-white cursor-pointer"
           type="submit"
         >
           Submit
