@@ -53,46 +53,58 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
         noValidate
         onSubmit={handleSubmit}
       >
-        <h2 className="text-center mb-4 text-2xl">
-          {currentId ? "Update" : "Create"} a Post!
-        </h2>
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
-          placeholder="Your Name"
-          name="creator"
-          label="Creator"
-          value={postData.creator}
-          onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
-          }
-        />
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
-          name="title"
-          label="Title"
-          placeholder="Post Title"
-          value={postData.title}
-          onChange={(e) => setPostData({ ...postData, title: e.target.value })}
-        />
-        <textarea
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2 resize-none"
-          name="message"
-          label="Message"
-          placeholder="Write your message here"
-          rows={4}
-          value={postData.message}
-          onChange={(e) =>
-            setPostData({ ...postData, message: e.target.value })
-          }
-        />
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
-          name="tags"
-          label="Tags"
-          placeholder="Add tags (e.g., #React, #WebDev)"
-          value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
-        />
+        <div className="mb-4">
+          <h2 className="text-center text-2xl">
+            {currentId ? "Update" : "Create"} a Post!
+          </h2>
+        </div>
+        <div className="mb-2">
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
+            placeholder="Your Name"
+            name="creator"
+            label="Creator"
+            value={postData.creator}
+            onChange={(e) =>
+              setPostData({ ...postData, creator: e.target.value })
+            }
+          />
+        </div>
+        <div className="mb-2">
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            name="title"
+            label="Title"
+            placeholder="Post Title"
+            value={postData.title}
+            onChange={(e) =>
+              setPostData({ ...postData, title: e.target.value })
+            }
+          />
+        </div>
+        <div className="mb-2">
+          <textarea
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none"
+            name="message"
+            label="Message"
+            placeholder="Write your message here"
+            rows={4}
+            value={postData.message}
+            onChange={(e) =>
+              setPostData({ ...postData, message: e.target.value })
+            }
+          />
+        </div>
+        <div className="mb-2">
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            name="tags"
+            label="Tags"
+            placeholder="Add tags (e.g., #React, #WebDev)"
+            value={postData.tags}
+            onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+          />
+        </div>
         <div className="input-file mb-2">
           <FileBase
             type="file"
@@ -102,19 +114,21 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
             }
           />
         </div>
-        <button
-          className="bg-blue-500 rounded-2xl mb-2 text-white cursor-pointer"
-          type="submit"
-        >
-          Submit
-        </button>
-        <button
-          className="bg-red-500 rounded-2xl mb-2 text-white cursor-pointer"
-          onClick={clear}
-          type="button"
-        >
-          Clear
-        </button>
+        <div className="mb-2 flex justify-center">
+          <button
+            className="button-submit"
+            type="submit"
+          >
+            Post
+          </button>
+          <button
+            className="button-clear"
+            onClick={clear}
+            type="button"
+          >
+            Clear
+          </button>
+        </div>
       </form>
     </div>
   );
