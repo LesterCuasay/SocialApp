@@ -3,7 +3,7 @@ import { PiDotsThreeBold } from "react-icons/pi";
 import { TiThumbsUp } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import { deletePost } from "../../actions/Posts";
+import { deletePost, likePost } from "../../actions/Posts";
 
 const Post = ({ post, setCurrentId }) => {
 
@@ -33,7 +33,7 @@ const Post = ({ post, setCurrentId }) => {
           <TiThumbsUp
             size={24}
             className="cursor-pointer text-blue-500"
-            onClick={() => {}}
+            onClick={() => dispatch(likePost(post._id))}
           />
           <span>Likes</span>
           <span>{post.likeCount}</span>

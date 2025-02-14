@@ -7,7 +7,7 @@ const Posts = ({ setCurrentId }) => {
   console.log(posts);
 
   return (
-    <div className="sm:max-w-lg mx-auto mt-4 space-y-4">
+    <div className="sm:max-w-lg mx-auto space-y-4 my-8">
       {posts.length === 0 ? (
         <div className="rounded bg-white flex justify-center">
           <p className="font-bold p-4">No Posts!</p>
