@@ -4,6 +4,7 @@ import { TiThumbsUp } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { deletePost, likePost } from "../../actions/Posts";
+import moment from "moment";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
@@ -30,7 +31,13 @@ const Post = ({ post, setCurrentId }) => {
   return (
     <div className="bg-white rounded-2xl">
       <div>
-        <img src={post.selectedFile} className="w-full h-48 object-cover rounded-2xl" alt="" />
+        {post.selectedFile && (
+          <img
+            src={post.selectedFile}
+            className="w-full h-48 object-cover rounded-2xl"
+            alt=""
+          />
+        )}
       </div>
       <div className="flex border-b-2 p-2" ref={dropdownRef}>
         <div className="flex w-full items-center">
@@ -72,10 +79,12 @@ const Post = ({ post, setCurrentId }) => {
           </div>
         )}
       </div>
-      <div className="p-2">
-        <p className="">{post.message}</p>
-        <p className=""> - {post.creator || "Anonymous"}</p>
+      <div className="p-2 flex flex-col">
+        <p className="my-4">{post.message}</p>
+        <p> - {post.creator || "Anonymous"}</p>
         <p>{post.tags}</p>
+        <p className="font-sm opacity-50 ml-auto">{moment(post.createdAt).fromNow()}</p>
+{  console.log(post.createdAt)}
       </div>
       <div className="mt-4 flex items-center justify-center p-2">
         <div className="flex items-center space-x-2">

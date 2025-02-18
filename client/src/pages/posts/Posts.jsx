@@ -9,14 +9,12 @@ const Posts = ({ setCurrentId }) => {
   return (
     <div className="sm:max-w-lg mx-auto space-y-4 my-8">
       {posts.length === 0 ? (
-        <div className="rounded-2xl bg-white flex justify-center">
+        <div className="rounded bg-white flex justify-center">
           <p className="font-bold p-4">No Posts!</p>
         </div>
       ) : (
-        posts.map((post, index) => (
-          <div
-            key={post.id ?? index}
-          >
+        posts.map((post) => (
+          <div key={post._id}>
             <Post post={post} setCurrentId={setCurrentId} />
           </div>
         ))
