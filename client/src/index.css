@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
 @layer components {
   .sidebar-icon {
     @apply relative flex items-center justify-center

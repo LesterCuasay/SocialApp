@@ -40,7 +40,7 @@ const Post = ({ post, setCurrentId }) => {
         )}
       </div>
       <div className="flex border-b-2 p-2" ref={dropdownRef}>
-        <div className="flex w-full items-center">
+        <div className="flex w-full items-center mx-2">
           <div className="flex-grow mb-4">
             <h2 className="text-lg font-bold">{post.title}</h2>
           </div>
@@ -53,7 +53,7 @@ const Post = ({ post, setCurrentId }) => {
           </div>
         </div>
         {isDropdownOpen && (
-          <div className="absolute translate-x-70 left-1/2 mt-2 w-20 text-center bg-white border rounded-md shadow-lg">
+          <div className="absolute translate-x-70 left-1/2 mt-2 w-20 text-center bg-white border rounded-md shadow-lg max-xs:translate-x-20">
             <div className="bg-green-600 hover:bg-green-500 text-white transition-all duration-300 ease-linear">
               <p
                 className="py-2 cursor-pointer"

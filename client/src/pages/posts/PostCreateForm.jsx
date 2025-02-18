@@ -47,7 +47,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
   return (
     <div className="flex justify-center">
       <form
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col"
+        className="bg-white shadow-md rounded p-8 mb-4 flex flex-col max-xs:p-2 max-xs:w-75"
         action=""
         autoComplete="off"
         noValidate
@@ -60,7 +60,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
         </div>
         <div className="mb-2">
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline  "
             placeholder="Your Name"
             name="creator"
             label="Creator"
@@ -72,7 +72,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
         </div>
         <div className="mb-2">
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
             name="title"
             label="Title"
             placeholder="Post Title"
@@ -84,7 +84,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
         </div>
         <div className="mb-2">
           <textarea
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none "
             name="message"
             label="Message"
             placeholder="Write your message here"
@@ -97,7 +97,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
         </div>
         <div className="mb-2">
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
             name="tags"
             label="Tags"
             placeholder="Add tags (e.g., #React, #WebDev)"
@@ -114,7 +114,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
             }
           />
         </div>
-        <div className="mb-2 flex justify-center">
+        <div className="mb-2 flex justify-center max-xs:block">
           <button
             className="button-submit"
             type="submit"
