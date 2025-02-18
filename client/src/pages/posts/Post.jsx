@@ -28,16 +28,23 @@ const Post = ({ post, setCurrentId }) => {
   }, []);
 
   return (
-    <div>
-      <div className="flex border-b-2 p-2 pb-0" ref={dropdownRef}>
-        <h2 className="text-lg font-bold flex-grow mb-4">{post.title}</h2>
-        <button>
-          <PiDotsThreeBold
-            size={24}
-            className="cursor-pointer"
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          />
-        </button>
+    <div className="bg-white rounded-2xl">
+      <div>
+        <img src={post.selectedFile} className="w-full h-48 object-cover rounded-2xl" alt="" />
+      </div>
+      <div className="flex border-b-2 p-2" ref={dropdownRef}>
+        <div className="flex w-full items-center">
+          <div className="flex-grow mb-4">
+            <h2 className="text-lg font-bold">{post.title}</h2>
+          </div>
+          <div className="ml-auto">
+            <PiDotsThreeBold
+              size={24}
+              className="cursor-pointer"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            />
+          </div>
+        </div>
         {isDropdownOpen && (
           <div className="absolute translate-x-70 left-1/2 mt-2 w-20 text-center bg-white border rounded-md shadow-lg">
             <div className="bg-green-600 hover:bg-green-500 text-white transition-all duration-300 ease-linear">
