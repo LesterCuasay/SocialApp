@@ -47,7 +47,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
   return (
     <div className="flex justify-center">
       <form
-        className="bg-white shadow-md rounded p-8 mb-4 flex flex-col max-xs:p-2 max-xs:w-75"
+        className="bg-white shadow-md rounded p-8 mb-4 flex flex-col max-xs:w-75"
         action=""
         autoComplete="off"
         noValidate
