@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import postRoutes from "./routes/posts.js";
+import authRoutes from "./routes/authRoutes.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/posts", postRoutes);
+app.use("/auth", authRoutes);
 
 const MONGO_URL = process.env.MONGO_URL;
 
