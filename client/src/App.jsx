@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Layout from "./components/Layout";
 import PostFeed from "./pages/feed/PostFeed";
 import Profile from "./pages/profile/ProfilePage";
+import SignUpPage from "./pages/auth/SignUpPage";
 import Login from "./pages/auth/Login";
 import Logout from "./pages/auth/Logout";
 
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<PostFeed />} />
           <Route path="/feed" element={<PostFeed />} />
+          <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/logout" element={<Logout />} />
