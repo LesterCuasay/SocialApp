@@ -1,10 +1,10 @@
 import express from 'express'
-import { register, login, getProfile } from '../controllers/authController.js'
+import { signup, login, getProfile } from '../controllers/authController.js'
 import { verifyToken } from '../middleware/authMiddleware.js'
 
 const router = express.Router();
 
-router.post("/register", register);
+router.post("/signup", signup);
 router.post("/login", login);
 router.get("/profile", verifyToken, getProfile);
 
