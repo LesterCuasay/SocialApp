@@ -4,7 +4,6 @@ import PostFeed from "./pages/feed/PostFeed";
 import Profile from "./pages/profile/ProfilePage";
 import SignUpPage from "./pages/auth/SignUpPage";
 import Login from "./pages/auth/Login";
-import Logout from "./pages/auth/Logout";
 
 import { useDispatch } from "react-redux";
 import { getPosts } from "./actions/Posts";
@@ -28,7 +27,6 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/logout" element={<Logout />} />
         </Routes>
       </div>
     </div>
