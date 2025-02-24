@@ -1,7 +1,7 @@
 import React from "react";
 import { FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-import { IoLogOutOutline } from "react-icons/io5";
+import { IoLogOutOutline, IoLogInOutline} from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const SideBar = ({ isOpen, toggleSideBar }) => {
@@ -18,7 +18,9 @@ const SideBar = ({ isOpen, toggleSideBar }) => {
       <Link to="/profile" aria-label="Profile" onClick={toggleSideBar}>
         <SideBarIcon icon={<CgProfile size="28" />} text="Profile" />
       </Link>
-
+      <Link to="/login" aria-label="Login" onClick={toggleSideBar}>
+        <SideBarIcon icon={<IoLogInOutline size="28" />} text="Login" />
+      </Link>
       <Link to="/logout" aria-label="Logout" onClick={toggleSideBar}>
         <SideBarIcon icon={<IoLogOutOutline size="28" />} text="Logout" />
       </Link>

@@ -60,7 +60,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
         </div>
         <div className="mb-2">
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline  "
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Your Name"
             name="creator"
             label="Creator"
@@ -72,7 +72,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
         </div>
         <div className="mb-2">
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             name="title"
             label="Title"
             placeholder="Post Title"
@@ -97,7 +97,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
         </div>
         <div className="mb-2">
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             name="tags"
             label="Tags"
             placeholder="Add tags (e.g., #React, #WebDev)"
