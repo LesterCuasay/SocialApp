@@ -30,13 +30,13 @@ const SideBar = ({ isOpen, toggleSideBar }) => {
     <>
       <button
         onClick={toggleSideBar}
-        className={`md:hidden top-4 left-4 bg-gray-800 text-white p-2 rounded-4xl focus:outline-none absolute z-10 cursor-pointer
+        className={`md:hidden top-4 left-4 bg-gray-800 text-white p-2 rounded-4xl focus:outline-none absolute z-20 cursor-pointer
         transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
       >
         {isOpen ? <IoIosClose size={32} /> : <IoIosMenu size={32} />}
       </button>
       <div
-        className={`bg-gray-900 text-white w-full md:w-32 p-4 shadow-md h-screen fixed left-0 transition-all ease-in-out duration-300
+        className={`bg-gray-900 text-white w-full md:w-32 p-4 shadow-md h-screen fixed left-0 transition-all ease-in-out duration-300 z-10
         ${isOpen ? "translate-x-0" : "max-md:-translate-x-full"}`}
       >
         {isLoggedin ? (
