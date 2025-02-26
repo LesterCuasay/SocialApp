@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, DELETE, UPDATE} from "../constants/actionTypes";
+import { FETCH_ALL, CREATE, DELETE, UPDATE, SET_CURRENT_ID, SET_POST_DATA} from "../constants/actionTypes";
 import * as api from "../api";
 
 export const getPosts = () => async (dispatch) => {
@@ -50,3 +50,13 @@ export const likePost = (id) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const setCurrentId = (id) => ({
+  type: SET_CURRENT_ID,
+  payload: id,
+})
+
+export const setPostData = (id) => ({
+  type: SET_POST_DATA,
+  payload: id,
+})

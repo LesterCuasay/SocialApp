@@ -1,9 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentId } from "../../actions/Posts";
 import Post from "./Post";
 
-const Posts = ({ setCurrentId }) => {
-  const posts = useSelector((state) => state.posts);
+const Posts = () => {
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts.posts);
+
+  console.log(posts)
+  const handleSetCurrentId = (id) => {
+    dispatch(setCurrentId(id));
+  }
 
   return (
     <div className="sm:max-w-lg mx-auto space-y-4 my-8">
@@ -14,7 +21,7 @@ const Posts = ({ setCurrentId }) => {
       ) : (
         posts.map((post) => (
           <div key={post._id}>
-            <Post post={post} setCurrentId={setCurrentId} />
+            <Post post={post} setCurrentId={handleSetCurrentId} />
           </div>
         ))
       )}

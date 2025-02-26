@@ -1,27 +1,30 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch } from "react-redux";
-import { createPost, updatePost } from "../../actions/Posts";
+import {
+  createPost,
+  setPostData,
+  updatePost,
+  setCurrentId,
+} from "../../actions/Posts";
 import FileBase from "react-file-base64";
 import { useSelector } from "react-redux";
 import { AuthContext } from "../../contexts/AuthContext";
 
-const PostCreateForm = ({ currentId, setCurrentId }) => {
+const PostCreateForm = () => {
   const { user } = useContext(AuthContext);
-  const [postData, setPostData] = useState({
-    title: "",
-    message: "",
-    tags: "",
-    selectedFile: "",
-  });
 
-  const post = useSelector((state) =>
-    currentId ? state.posts.find((p) => p._id === currentId) : null
-  );
+  const { currentId, postData, posts } = useSelector((state) => state.posts);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (post) setPostData(post);
-  }, [post]);
+    if (currentId) {
+      const selectedPost = posts.find((post) => post._id === currentId);
+      if (selectedPost) {
+        dispatch(setPostData({ ...selectedPost, creator: user.username }));
+      }
+    }
+  }, [currentId, dispatch, user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,14 +38,19 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
   };
 
   const clear = () => {
-    setCurrentId(null);
-    setPostData({
-      creator: user.username,
-      title: "",
-      message: "",
-      tags: "",
-      selectedFile: "",
-    });
+    dispatch(setCurrentId(null));
+    dispatch(
+      setPostData({
+        title: "",
+        message: "",
+        tags: "",
+        selectedFile: "",
+      })
+    );
+  };
+
+  const handleInputChange = (e) => {
+    dispatch(setPostData({ ...postData, [e.target.name]: e.target.value }));
   };
 
   return (
@@ -66,9 +74,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
             label="Title"
             placeholder="Post Title"
             value={postData.title}
-            onChange={(e) =>
-              setPostData({ ...postData, title: e.target.value })
-            }
+            onChange={handleInputChange}
           />
         </div>
         <div className="mb-2">
@@ -79,9 +85,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
             placeholder="Write your message here"
             rows={4}
             value={postData.message}
-            onChange={(e) =>
-              setPostData({ ...postData, message: e.target.value })
-            }
+            onChange={handleInputChange}
           />
         </div>
         <div className="mb-2">
@@ -91,7 +95,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
             label="Tags"
             placeholder="Add tags (e.g., #React, #WebDev)"
             value={postData.tags}
-            onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+            onChange={handleInputChange}
           />
         </div>
         <div className="input-file mb-2">
@@ -99,7 +103,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
             type="file"
             multiple={false}
             onDone={({ base64 }) =>
-              setPostData({ ...postData, selectedFile: base64 })
+              dispatch(setPostData({ ...postData, selectedFile: base64 }))
             }
           />
         </div>
