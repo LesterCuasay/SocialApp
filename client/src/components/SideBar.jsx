@@ -6,7 +6,7 @@ import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { IoIosMenu, IoIosClose } from "react-icons/io";
 
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
 
 const SideBar = ({ isOpen, toggleSideBar }) => {
   const { user, logout } = useContext(AuthContext);

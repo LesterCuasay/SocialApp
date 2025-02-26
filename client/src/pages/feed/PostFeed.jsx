@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Posts from "../posts/Posts";
 import PostCreateForm from "../posts/PostCreateForm";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const PostFeed = () => {
   const { user } = useContext(AuthContext);
