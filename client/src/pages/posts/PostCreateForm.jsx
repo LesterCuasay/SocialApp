@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { createPost, updatePost } from "../../actions/Posts";
 import FileBase from "react-file-base64";
 import { useSelector } from "react-redux";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const PostCreateForm = ({ currentId, setCurrentId }) => {
+  const { user } = useContext(AuthContext);
   const [postData, setPostData] = useState({
-    creator: "",
     title: "",
     message: "",
     tags: "",
@@ -26,9 +27,9 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if (currentId) {
-      dispatch(updatePost(currentId, postData));
+      dispatch(updatePost(currentId, { ...postData, creator: user.username }));
     } else {
-      dispatch(createPost(postData));
+      dispatch(createPost({ ...postData, creator: user.username }));
     }
     clear();
   };
@@ -36,7 +37,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
   const clear = () => {
     setCurrentId(null);
     setPostData({
-      creator: "",
+      creator: user.username,
       title: "",
       message: "",
       tags: "",
@@ -47,7 +48,7 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
   return (
     <div className="flex justify-center">
       <form
-        className="bg-white shadow-md rounded p-8 mb-4 flex flex-col max-xs:w-75"
+        className="bg-white shadow-md rounded p-8 mb-4 mt-20 flex flex-col max-xs:w-75"
         action=""
         autoComplete="off"
         noValidate
@@ -57,18 +58,6 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
           <h2 className="text-center text-2xl">
             {currentId ? "Update" : "Create"} a Post!
           </h2>
-        </div>
-        <div className="mb-2">
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            placeholder="Your Name"
-            name="creator"
-            label="Creator"
-            value={postData.creator}
-            onChange={(e) =>
-              setPostData({ ...postData, creator: e.target.value })
-            }
-          />
         </div>
         <div className="mb-2">
           <input
@@ -115,17 +104,10 @@ const PostCreateForm = ({ currentId, setCurrentId }) => {
           />
         </div>
         <div className="mb-2 flex justify-center max-xs:block">
-          <button
-            className="button-submit"
-            type="submit"
-          >
+          <button className="button-submit" type="submit">
             Post
           </button>
-          <button
-            className="button-clear"
-            onClick={clear}
-            type="button"
-          >
+          <button className="button-clear" onClick={clear} type="button">
             Clear
           </button>
         </div>

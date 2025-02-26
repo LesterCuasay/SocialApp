@@ -81,10 +81,9 @@ const Post = ({ post, setCurrentId }) => {
       </div>
       <div className="p-2 flex flex-col">
         <p className="my-4">{post.message}</p>
-        <p> - {post.creator || "Anonymous"}</p>
+        <p className="capitalize"> - {post.creator}</p>
         <p>{post.tags}</p>
         <p className="font-sm opacity-50 ml-auto">{moment(post.createdAt).fromNow()}</p>
-{  console.log(post.createdAt)}
       </div>
       <div className="mt-4 flex items-center justify-center p-2">
         <div className="flex items-center space-x-2">

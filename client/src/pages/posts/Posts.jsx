@@ -4,7 +4,6 @@ import Post from "./Post";
 
 const Posts = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
-  console.log(posts);
 
   return (
     <div className="sm:max-w-lg mx-auto space-y-4 my-8">
