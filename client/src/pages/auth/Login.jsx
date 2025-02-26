@@ -6,13 +6,13 @@ const Login = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await login(email, password);
+      await login(username, password);
       navigate("/feed");
     } catch (error) {
       console.error("Login failed", error);
@@ -29,10 +29,10 @@ const Login = () => {
           <h2 className="text-center text-2xl">Login</h2>
         </div>
         <FloatingLabelInput
-          label="Email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          label="Username"
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
         />
 
