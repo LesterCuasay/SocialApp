@@ -1,17 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { PiDotsThreeBold } from "react-icons/pi";
 import { TiThumbsUp } from "react-icons/ti";
-import { MdDelete } from "react-icons/md";
 import { useDispatch } from "react-redux";
+import { AuthContext } from "../../contexts/AuthContext";
 import { deletePost, likePost } from "../../actions/Posts";
 import moment from "moment";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
 
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  const { user } = useContext(AuthContext);
+  
   const handleItemClick = () => {
     setIsDropdownOpen(false);
   };
@@ -44,13 +47,15 @@ const Post = ({ post, setCurrentId }) => {
           <div className="flex-grow mb-4">
             <h2 className="text-lg font-bold">{post.title}</h2>
           </div>
-          <div className="ml-auto">
-            <PiDotsThreeBold
-              size={24}
-              className="cursor-pointer"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            />
-          </div>
+          {user && user.username === post.creator && (
+            <div className="ml-auto">
+              <PiDotsThreeBold
+                size={24}
+                className="cursor-pointer"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              />
+            </div>
+          )}
         </div>
         {isDropdownOpen && (
           <div className="absolute translate-x-70 left-1/2 mt-2 w-20 text-center bg-white border rounded-md shadow-lg max-xs:translate-x-20">
@@ -83,7 +88,9 @@ const Post = ({ post, setCurrentId }) => {
         <p className="my-4">{post.message}</p>
         <p className="capitalize"> - {post.creator}</p>
         <p>{post.tags}</p>
-        <p className="font-sm opacity-50 ml-auto">{moment(post.createdAt).fromNow()}</p>
+        <p className="font-sm opacity-50 ml-auto">
+          {moment(post.createdAt).fromNow()}
+        </p>
       </div>
       <div className="mt-4 flex items-center justify-center p-2">
         <div className="flex items-center space-x-2">
