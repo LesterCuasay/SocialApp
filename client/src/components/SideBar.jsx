@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { RiUserAddLine } from "react-icons/ri";
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import { IoIosMenu, IoIosClose } from "react-icons/io";
+
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
@@ -30,7 +31,7 @@ const SideBar = ({ isOpen, toggleSideBar }) => {
       <button
         onClick={toggleSideBar}
         className={`md:hidden top-4 left-4 bg-gray-800 text-white p-2 rounded-4xl focus:outline-none absolute z-10 cursor-pointer
-        transition-transform duration-300 ${isOpen ? "rotate-180" : "" }`}
+        transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
       >
         {isOpen ? <IoIosClose size={32} /> : <IoIosMenu size={32} />}
       </button>

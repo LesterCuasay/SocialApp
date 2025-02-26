@@ -22,45 +22,65 @@ const SignUpPage = () => {
     }
   };
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center items-center min-h-screen">
       <form
-        className="bg-white shadow-md rounded p-8 flex flex-col max-xs:w-75"
+        className="bg-white shadow-md rounded w-100 p-8"
         onSubmit={handleSignUp}
       >
         <div className="mb-4">
           <h2 className="text-center text-2xl">Sign Up</h2>
         </div>
-        <div className="mb-2">
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
+        <FloatingLabelInput
+          label="Username"
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+
+        <FloatingLabelInput
+          label="Email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <FloatingLabelInput
+          label="Password"
+          type="password"
+          value={password}
+          placeholder=""
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <div className="mt-6 flex">
+          <button className="button-submit" type="submit">
+            Sign Up
+          </button>
         </div>
-        <div className="mb-2">
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-2">
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button className="button-submit" type="submit">
-          Sign Up
-        </button>
       </form>
+    </div>
+  );
+};
+
+const FloatingLabelInput = ({ label, type, value, onChange, required }) => {
+  return (
+    <div className="relative w-full mb-6">
+      <input
+        type={type}
+        value={value}
+        onChange={onChange}
+        required={required}
+        className="peer w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800 text-gray-900"
+      />
+      <label
+        className={`absolute left-3 top-3 text-gray-500 transition-all duration-200 
+        peer-focus:top-0 peer-focus:text-xs peer-focus:text-gray-300
+        peer-valid:top-0 peer-valid:text-xs peer-valid:text-gray-300`}
+      >
+        {label}
+      </label>
     </div>
   );
 };

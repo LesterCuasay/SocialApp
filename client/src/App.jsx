@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="flex">
       <Layout />
-      <div className="flex-1 px-8 md:pl-38 md:pr-8 pt-10 bg-gray-800 min-h-screen max-xs:w-full">
+      <div className="flex-1 px-8 md:pl-38 md:pr-8 bg-gray-800 min-h-screen max-xs:w-full">
         <Routes>
           <Route path="/" element={<PostFeed />} />
           <Route path="/feed" element={<PostFeed />} />
