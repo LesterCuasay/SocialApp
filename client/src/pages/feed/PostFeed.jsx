@@ -15,8 +15,6 @@ const PostFeed = () => {
     <div>
       {isLoggedin ? (
         <>
-          <PostCreateForm currentId={currentId} setCurrentId={setCurrentId} />
-
           <Posts setCurrentId={setCurrentId} />
         </>
       ) : (

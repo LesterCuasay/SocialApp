@@ -44,6 +44,9 @@ const SideBar = ({ isOpen, toggleSideBar }) => {
             <Link to="/feed" aria-label="Feed" onClick={toggleSideBar}>
               <SideBarIcon icon={<FaHome size="28" />} text="Feed" />
             </Link>
+            <Link to="/create" aria-label="Create a Post!" onClick={toggleSideBar}>
+              <SideBarIcon icon={<FaSignInAlt size="28" />} text="Login" />
+            </Link>
             <Link to="/profile" aria-label="Profile" onClick={toggleSideBar}>
               <SideBarIcon icon={<CgProfile size="28" />} text="Profile" />
             </Link>

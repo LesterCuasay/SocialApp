@@ -6,13 +6,19 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { deletePost, likePost } from "../../actions/Posts";
 import moment from "moment";
 import useClickOutsideToggle from "../../hooks/useClickOutsideToggle";
+import { useNavigate } from "react-router-dom";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
-  const { isDropdownOpen, setIsDropdownOpen, handleItemClick, dropdownRef } = useClickOutsideToggle();
-  
+  const { isDropdownOpen, setIsDropdownOpen, handleItemClick, dropdownRef } =
+    useClickOutsideToggle();
+
+  const handleUpdate = () => {
+    navigate("/update");
+  };
 
   return (
     <div className="bg-white rounded-2xl">
@@ -48,6 +54,7 @@ const Post = ({ post, setCurrentId }) => {
                 onClick={() => {
                   setCurrentId(post._id);
                   handleItemClick();
+                  handleUpdate();
                 }}
               >
                 Update

@@ -9,13 +9,17 @@ import {
 import FileBase from "react-file-base64";
 import { useSelector } from "react-redux";
 import { AuthContext } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const PostCreateForm = () => {
   const { user } = useContext(AuthContext);
-
   const { currentId, postData, posts } = useSelector((state) => state.posts);
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const handleRedirect = () => {
+    navigate("/feed");
+  };
 
   useEffect(() => {
     if (currentId) {
@@ -108,10 +112,18 @@ const PostCreateForm = () => {
           />
         </div>
         <div className="mb-2 flex justify-center max-xs:block">
-          <button className="button-submit" type="submit">
+          <button
+            className="button-submit"
+            type="submit"
+            onClick={handleRedirect}
+          >
             Post
           </button>
-          <button className="button-clear" onClick={clear} type="button">
+          <button
+            className="button-clear"
+            onClick={(clear, handleRedirect)}
+            type="button"
+          >
             Clear
           </button>
         </div>

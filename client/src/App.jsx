@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { getPosts } from "./actions/Posts";
 
 import { Routes, Route } from "react-router-dom";
+import PostCreateForm from "./pages/posts/PostCreateForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,8 @@ function App() {
         <Routes>
           <Route path="/" element={<PostFeed />} />
           <Route path="/feed" element={<PostFeed />} />
+          <Route path="/create" element={<PostCreateForm />} />
+          <Route path="/update" element={<PostCreateForm />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
