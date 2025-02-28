@@ -17,7 +17,7 @@ const SideBar = ({ isOpen, toggleSideBar }) => {
   const handleLogout = () => {
     logout();
     setTimeout(() => {
-      navigate("/login");
+      navigate("/feed");
     }, 100);
   };
 
