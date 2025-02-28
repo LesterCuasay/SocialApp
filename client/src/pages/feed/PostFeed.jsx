@@ -21,19 +21,21 @@ const PostFeed = () => {
         </>
       ) : (
         <div className="flex min-h-screen justify-center items-center align-center">
-          <div className="flex flex-row rounded-lg bg-white shadow-lg">
+          <div className="flex flex-row rounded-lg bg-white shadow-lg w-full max-w-screen-lg">
             <div className="flex justify-center items-center p-8 w-full max-w-md sm:max-w-lg lg:max-w-xl min-h-[200px] sm:min-h-[300px] md:min-h-[400px]">
               <div className="text-center">
                 <h2 className="text-2xl font-semibold mb-4">
                   Already a member?
                 </h2>
-                <p className="mb-6 text-gray-600">Have you got an account? if so</p>
+                <p className="mb-6 text-gray-600">
+                  Have you got an account? if so
+                </p>
                 <button
-                    className="button-submit"
-                    onClick={() => navigate("/login")}
-                  >
-                    Login
-                  </button>
+                  className="button-submit"
+                  onClick={() => navigate("/login")}
+                >
+                  Login
+                </button>
               </div>
             </div>
 
