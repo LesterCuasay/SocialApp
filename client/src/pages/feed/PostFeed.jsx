@@ -22,7 +22,7 @@ const PostFeed = () => {
       ) : (
         <div className="flex min-h-screen justify-center items-center align-center ">
           <div className="flex flex-row rounded-lg bg-white shadow-lg w-full max-w-screen-lg">
-            <div className="flex justify-center items-center px-2 py-4 sm:p-8 w-full sm:max-w-lg lg:max-w-xl min-h-[200px] sm:min-h-[300px] md:min-h-[400px]">
+            <div className="flex justify-center items-center px-1 py-4 sm:py-8 sm:px-3 w-full max-w-md sm:max-w-lg lg:max-w-xl min-h-[200px] sm:min-h-[300px] md:min-h-[400px]">
               <div className="text-center">
                 <h2 className="text-md font-semibold mb-4 sm:text-3xl">
                   Have an account?
@@ -41,7 +41,7 @@ const PostFeed = () => {
 
             <div className="w-[2px] h-auto bg-gray-300"></div>
 
-            <div className="flex justify-center items-center px-2 py-4 sm:p-8 w-full sm:max-w-lg lg:max-w-xl min-h-[200px] sm:min-h-[300px] md:min-h-[400px]">
+            <div className="flex justify-center items-center px-1 py-4 sm:py-8 sm:px-3 w-full max-w-md sm:max-w-lg lg:max-w-xl min-h-[200px] sm:min-h-[300px] md:min-h-[400px]">
               <div className="text-center">
                 <h2 className="text-md font-semibold mb-4 sm:text-3xl"> New here?</h2>
                 <p className="mb-6 text-gray-600 max-sm:text-[10px] text-lg">If not sign up below!</p>
