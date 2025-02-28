@@ -1,35 +1,18 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { PiDotsThreeBold } from "react-icons/pi";
 import { TiThumbsUp } from "react-icons/ti";
 import { useDispatch } from "react-redux";
 import { AuthContext } from "../../contexts/AuthContext";
 import { deletePost, likePost } from "../../actions/Posts";
 import moment from "moment";
+import useClickOutsideToggle from "../../hooks/useClickOutsideToggle";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
 
-
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
   const { user } = useContext(AuthContext);
+  const { isDropdownOpen, setIsDropdownOpen, handleItemClick, dropdownRef } = useClickOutsideToggle();
   
-  const handleItemClick = () => {
-    setIsDropdownOpen(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div className="bg-white rounded-2xl">
