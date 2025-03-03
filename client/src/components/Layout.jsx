@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import SideBar from "./SideBar";
 
 const Layout = () => {
-  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
-  
+
   return (
     <div>
-      <SideBar toggleSideBar={() => setIsSideBarOpen(!isSideBarOpen)} isOpen={isSideBarOpen} />
+      <SideBar />
     </div>
   );
 };

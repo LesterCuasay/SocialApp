@@ -13,7 +13,7 @@ const Post = ({ post, setCurrentId }) => {
   const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
-  const { isDropdownOpen, setIsDropdownOpen, handleItemClick, dropdownRef } =
+  const { isOpen, setIsOpen, handleItemClick, clickOutsideRef } =
     useClickOutsideToggle();
 
   const handleUpdate = () => {
@@ -31,7 +31,7 @@ const Post = ({ post, setCurrentId }) => {
           />
         )}
       </div>
-      <div className="flex border-b-2 p-2" ref={dropdownRef}>
+      <div className="flex border-b-2 p-2" ref={clickOutsideRef}>
         <div className="flex w-full items-center mx-2">
           <div className="flex-grow mb-4">
             <h2 className="text-lg font-bold">{post.title}</h2>
@@ -41,12 +41,12 @@ const Post = ({ post, setCurrentId }) => {
               <PiDotsThreeBold
                 size={24}
                 className="cursor-pointer"
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                onClick={() => setIsOpen(!isOpen)}
               />
             </div>
           )}
         </div>
-        {isDropdownOpen && (
+        {isOpen && (
           <div className="absolute translate-x-70 left-1/2 mt-2 w-20 text-center bg-white border rounded-md shadow-lg max-xs:translate-x-20">
             <div className="bg-green-600 hover:bg-green-500 text-white transition-all duration-300 ease-linear">
               <p
